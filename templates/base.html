@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ page_title if page_title else 'Assessment 2 Flask App' }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <p class="eyebrow">Assessment 2</p>
+      <h1>Student Profile Page with Flask and HTML</h1>
+      <p class="subtitle">
+        A simple multi-section Flask web app that demonstrates template rendering,
+        structured HTML, and localhost execution.
+      </p>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>This page is rendered through Flask using <code>render_template()</code>.</p>
+    </div>
+  </footer>
+</body>
+</html>
