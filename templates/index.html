@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="card hero-card">
+  <h2>{{ profile.student_name }}</h2>
+  <p><strong>Course / Program Name:</strong> {{ profile.program_name }}</p>
+  <p>
+    This page is my structured student profile page built for Assessment 2.
+    It proves that I can use Flask to render an HTML template as a working web page.
+  </p>
+</section>
+
+<section class="grid-two">
+  <article class="card">
+    <h3>Why I Want to Learn Python</h3>
+    <p>{{ profile.why_python }}</p>
+  </article>
+
+  <article class="card">
+    <h3>My Current Setup Status</h3>
+    <p>{{ profile.setup_status }}</p>
+  </article>
+</section>
+
+<section class="card">
+  <h3>Three Things I Learned in This Lesson</h3>
+  <ul class="feature-list">
+    {% for point in profile.lesson_takeaways %}
+      <li>{{ point }}</li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="card">
+  <h3>Setup Checklist</h3>
+  <div class="checklist">
+    {% for row in profile.checklist %}
+      <div class="check-item {{ 'done' if row.done else 'pending' }}">
+        <span class="status-icon">{{ '✓' if row.done else '•' }}</span>
+        <span>{{ row.item }}</span>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="card">
+  <h3>Submission Reminder</h3>
+  <p>For this assessment, the student should submit:</p>
+  <ul class="feature-list">
+    <li>Terminal proof showing the Flask app running</li>
+    <li>The full <code>app.py</code> file</li>
+    <li>The HTML template files</li>
+    <li>A browser screenshot showing the rendered page on localhost</li>
+  </ul>
+</section>
+{% endblock %}
